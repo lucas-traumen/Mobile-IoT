@@ -21,7 +21,7 @@
 9. [Yêu cầu môi trường](#9-yêu-cầu-môi-trường)
 10. [Bảo mật và giới hạn](#10-bảo-mật-và-giới-hạn)
 11. [Tài liệu và repo gốc](#11-tài-liệu-và-repo-gốc)
-
+12. [Các thông tin khác về báo cáo]
 ## 1. Tổng quan
 
 | Thư mục | Vai trò | Công nghệ chính | Điểm vào |
@@ -416,3 +416,5 @@ Tài liệu chuyên sâu nên đọc theo thứ tự:
 ---
 
 Các dự án ban đầu được phát triển như ba repo/thư mục riêng; kho này hợp nhất chúng để tiện theo dõi toàn bộ hệ thống trong một nơi.
+## 12. Các thông tin khác về báo cáo
+Các thông tin khác như: video demo, slide thuyết trình, chi tiết về model AI, bảng tiến độ và phân công được lưu trong drive này: https://drive.google.com/drive/folders/1XVS87Jb3XkHPx-5ELHi-_dzIPzKAdMvG 
