@@ -1,0 +1,32 @@
+diff --git a/node_modules/react-native-zeroconf/android/src/main/java/com/balthazargronon/RCTZeroconf/nsd/NsdServiceImpl.java b/node_modules/react-native-zeroconf/android/src/main/java/com/balthazargronon/RCTZeroconf/nsd/NsdServiceImpl.java
+index c59850d..a114e81 100644
+--- a/node_modules/react-native-zeroconf/android/src/main/java/com/balthazargronon/RCTZeroconf/nsd/NsdServiceImpl.java
++++ b/node_modules/react-native-zeroconf/android/src/main/java/com/balthazargronon/RCTZeroconf/nsd/NsdServiceImpl.java
+@@ -103,12 +103,23 @@ public class NsdServiceImpl implements Zeroconf {
+ 
+     @Override
+     public void stop() {
+-        if (mDiscoveryListener != null) {
+-            mNsdManager.stopServiceDiscovery(mDiscoveryListener);
++        try {
++            if (mDiscoveryListener != null) {
++                mNsdManager.stopServiceDiscovery(mDiscoveryListener);
++            }
++        } catch (Exception e) {
++            // Stopping a dead or already-stopped discovery is a no-op; it
++            // must never prevent the cleanup below from running.
+         }
+ 
+-        if (multicastLock != null) {
+-            multicastLock.release();
++        try {
++            if (multicastLock != null && multicastLock.isHeld()) {
++                multicastLock.release();
++            }
++        } catch (Exception e) {
++            // An unbalanced release ("MulticastLock under-locked") must not
++            // leave a ghost lock behind: the references are ALWAYS cleared
++            // below so the next scan() starts from a clean state.
+         }
+ 
+         mDiscoveryListener = null;

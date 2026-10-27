@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "IoT Dashboard",
+    "slug": "iot-dashboard",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/branding/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/branding/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E6F4FE"
+    },
+    "plugins": [
+      "./plugins/withAndroidCleartextTraffic",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Ứng dụng cần truy cập camera để quét mã QR trên nhãn board."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/branding/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#E6F4FE"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Ứng dụng dùng Bluetooth để cấu hình WiFi cho board IoT khi lần đầu thiết lập.",
+        "NSLocalNetworkUsageDescription": "Ứng dụng dùng mạng cục bộ để tìm máy chủ nhà thông minh trong LAN khi lần đầu thiết lập.",
+        "NSBonjourServices": ["_smarthome._tcp"]
+      },
+      "bundleIdentifier": "com.example.iot"
+    },
+    "android": {
+      "package": "com.example.iot",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/branding/android-icon-foreground.png",
+        "backgroundImage": "./assets/branding/android-icon-background.png",
+        "monochromeImage": "./assets/branding/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.CHANGE_WIFI_MULTICAST_STATE",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/branding/favicon.png"
+    }
+  }
+}

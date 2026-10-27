@@ -1,0 +1,9 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // OpenCode Harness V2 — orchestrator is the only V2 primary role.
+  // Providers, model catalog, GitNexus MCP (~/.config/opencode/opencode.json),
+  // LSP and global skills are host-level config and are intentionally untouched.
+  "default_agent": "orchestrator",
+  // V2 invariant: subagents (coder/tester/reviewer) never delegate further.
+  "subagent_depth": 1
+}
